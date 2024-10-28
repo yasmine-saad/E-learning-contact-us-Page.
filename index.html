@@ -12,10 +12,86 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-    <!-- Custom Global CSS -->
-    <link rel="stylesheet" href="contact-us.css" /> <!-- Link to external CSS file -->
+    <!-- Inline CSS -->
+    <style>
+        /* Contact Us Container */
+        .contact-us-container {
+            background: url('contact-us-banner.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 60px;
+        }
 
-    <script src="contact-us.ts"></script>
+        /* Header Banner */
+        .banner {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 100px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-weight: bold;
+            font-size: 3.5rem;
+            color: rgb(255, 111, 0);
+        }
+
+        /* Overlay Styling */
+        .background-img-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 60px 20px;
+            border-radius: 8px;
+        }
+
+        /* Footer Links and Hover */
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: rgb(255, 111, 0);
+        }
+
+        /* Form and Container Styling */
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-color: rgb(255, 111, 0);
+        }
+
+        .btn-primary {
+            background-color: rgb(255, 111, 0);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(200, 90, 0);
+            border-color: rgb(200, 90, 0);
+        }
+
+        /* Additional styles for responsiveness */
+        @media (max-width: 768px) {
+            .contact-us-container {
+                padding: 40px 10px;
+            }
+
+            .banner {
+                padding: 60px 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -34,23 +110,20 @@
 
             <!-- Contact Form -->
             <div class="container mt-5">
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <form id="contactForm" onsubmit="onSubmit(event)">
                     <div class="form-group mb-3">
                         <label for="name">Your Name</label>
-                        <input formControlName="name" type="text" class="form-control" id="name"
-                            placeholder="Enter your name" />
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required />
                     </div>
                     <div class="form-group mb-3">
                         <label for="email">Email Address</label>
-                        <input formControlName="email" type="email" class="form-control" id="email"
-                            placeholder="Enter your email" />
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required />
                     </div>
                     <div class="form-group mb-3">
                         <label for="message">Message</label>
-                        <textarea formControlName="message" class="form-control" id="message" rows="4"
-                            placeholder="Write your message"></textarea>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Write your message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 mt-3" [disabled]="contactForm.invalid">
+                    <button type="submit" class="btn btn-primary w-100 mt-3">
                         Submit
                     </button>
                 </form>
@@ -81,6 +154,20 @@
             </footer>
         </div>
     </div>
+
+    <!-- Inline JavaScript -->
+    <script>
+        function onSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Form Submitted', { name, email, message });
+            // Here you could add an API call to submit the form data
+        }
+    </script>
 
     <!-- Bootstrap JS (optional for additional functionality) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
