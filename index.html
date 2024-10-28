@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnova | Contact Us</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <!-- Inline CSS -->
+    <style>
+        /* Contact Us Container */
+        .contact-us-container {
+            background: url('contact-us-banner.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        /* Header Banner */
+        .banner {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 100px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-weight: bold;
+            font-size: 3.5rem;
+            color: rgb(255, 111, 0);
+        }
+
+        /* Overlay Styling */
+        .background-img-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 60px 20px;
+            border-radius: 8px;
+        }
+
+        /* Footer Links and Hover */
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: rgb(255, 111, 0);
+        }
+
+        /* Form and Container Styling */
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-color: rgb(255, 111, 0);
+        }
+
+        .btn-primary {
+            background-color: rgb(255, 111, 0);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(200, 90, 0);
+            border-color: rgb(200, 90, 0);
+        }
+
+        /* Additional styles for responsiveness */
+        @media (max-width: 768px) {
+            .contact-us-container {
+                padding: 40px 10px;
+            }
+
+            .banner {
+                padding: 60px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contact-us-container">
+        <!-- Header Banner -->
+        <header class="banner">
+            <h1 class="display-4">Learnova | Contact Us</h1>
+        </header>
+
+        <div class="background-img-overlay">
+            <!-- Contact Us Heading -->
+            <div class="container text-center mt-4">
+                <h2 class="display-5 mb-3">Need Assistance? We’re Here for You!</h2>
+                <p class="lead">Have questions? Send us a message, and we’ll respond promptly.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="container mt-5">
+                <form id="contactForm" onsubmit="onSubmit(event)">
+                    <div class="form-group mb-3">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Write your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-3">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="container mt-5 text-center">
+                <p>Reach us at <a href="mailto:support@learnova.net" class="text-warning">support@learnova.net</a></p>
+                <p class="text-muted">We aim to respond within 8 hours during business days.</p>
+            </div>
+
+            <!-- Footer with Social Media Icons and Links -->
+            <footer class="container mt-5">
+                <div class="d-flex justify-content-between">
+                    <!-- Social Media Icons -->
+                    <div>
+                        <a href="#" class="text-light"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-light ms-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-light ms-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                    <!-- Quick Links -->
+                    <div>
+                        <a href="#" class="text-light">Home</a> |
+                        <a href="#" class="text-light">Courses</a> |
+                        <a href="#" class="text-light">Contact</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Inline JavaScript -->
+    <script>
+        function onSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Form Submitted', { name, email, message });
+            // Here you could add an API call to submit the form data
+        }
+    </script>
+
+    <!-- Bootstrap JS (optional for additional functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
